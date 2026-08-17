@@ -66,12 +66,14 @@ body {
 }
 
 .comparison-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: nowrap;
   gap: 1rem;
 }
 
 .comparison-item {
+  flex: 1 1 0;
+  min-width: 0;
   overflow: hidden;
   border: 1px solid #bbb;
   border-radius: 10px;
@@ -131,10 +133,6 @@ body {
 @media screen and (max-width: 768px) {
   .publication-title {
     font-size: 2.15rem !important;
-  }
-
-  .comparison-grid {
-    grid-template-columns: 1fr;
   }
 
   .paper-figure-block {
