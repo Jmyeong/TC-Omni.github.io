@@ -66,13 +66,13 @@ body {
 }
 
 .comparison-grid {
-  display: flex;
-  flex-wrap: nowrap;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   gap: 1rem;
 }
 
 .comparison-item {
-  flex: 1 1 0;
+  width: 100%;
   min-width: 0;
   overflow: hidden;
   border: 1px solid #bbb;
@@ -124,6 +124,74 @@ body {
 
 .narrow-figure {
   max-width: 820px;
+}
+
+.quantitative-results {
+  background: #fafafa;
+}
+
+.quantitative-summary {
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+}
+
+.quantitative-table-wrap {
+  border-radius: 6px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.08);
+}
+
+.quantitative-table {
+  min-width: 1040px;
+  margin-bottom: 0 !important;
+  background: #fff;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.quantitative-table th,
+.quantitative-table td {
+  padding: 0.55rem 0.5rem;
+  text-align: center !important;
+  vertical-align: middle;
+}
+
+.quantitative-table thead th {
+  color: #fff;
+  background: #363636;
+}
+
+.quantitative-table .method-name {
+  min-width: 145px;
+  text-align: left !important;
+}
+
+.quantitative-table .method-group th {
+  padding: 0.4rem 0.65rem;
+  color: #555;
+  background: #eeeeee;
+  font-weight: 600;
+  text-align: left !important;
+}
+
+.quantitative-table .ours-result td {
+  color: #174b8b;
+  background: #edf5ff;
+}
+
+.quantitative-table .best {
+  font-weight: 800;
+}
+
+.second-best {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.table-note {
+  margin-top: 0.85rem;
+  color: #666;
+  font-size: 0.82rem;
 }
 
 #BibTeX {

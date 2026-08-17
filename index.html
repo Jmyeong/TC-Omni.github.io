@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/index.css?v=20260817-3">
   <link rel="icon" href="./static/images/favicon.svg">
 
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -75,7 +75,7 @@
                    class="external-link button is-normal is-rounded is-dark"
                    target="_blank" rel="noopener noreferrer">
                   <span class="icon"><i class="fab fa-github"></i></span>
-                  <span>Project Page</span>
+                  <span>Github</span>
                 </a>
               </span>
             </div>
@@ -129,6 +129,107 @@
         </article>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section quantitative-results">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
+    <div class="content has-text-centered quantitative-summary">
+      <p>
+        TC-Omni achieves state-of-the-art depth accuracy and temporal consistency
+        on both the synthetic Sunny dataset and our real-world OmniScape dataset.
+      </p>
+    </div>
+
+    <div class="table-container quantitative-table-wrap">
+      <table class="table is-bordered is-hoverable is-fullwidth quantitative-table">
+        <thead>
+          <tr>
+            <th rowspan="2" scope="col">Method</th>
+            <th colspan="5" scope="colgroup">Sunny</th>
+            <th colspan="5" scope="colgroup">OmniScape</th>
+          </tr>
+          <tr>
+            <th scope="col">EPE ↓</th>
+            <th scope="col">TEPE ↓</th>
+            <th scope="col">δ<sub>1</sub> ↓</th>
+            <th scope="col">δ<sub>3</sub> ↓</th>
+            <th scope="col">δ<sub>5</sub> ↓</th>
+            <th scope="col">EPE ↓</th>
+            <th scope="col">TEPE ↓</th>
+            <th scope="col">δ<sub>1</sub> ↓</th>
+            <th scope="col">δ<sub>3</sub> ↓</th>
+            <th scope="col">δ<sub>5</sub> ↓</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="method-group">
+            <th colspan="11" scope="rowgroup">Single-frame methods</th>
+          </tr>
+          <tr>
+            <td class="method-name">OmniMVS</td>
+            <td>1.200</td><td>0.630</td><td>12.180</td><td>3.530</td><td>1.850</td>
+            <td class="second-best">2.962</td><td>0.925</td><td>26.690</td><td>4.890</td><td>1.740</td>
+          </tr>
+          <tr>
+            <td class="method-name">OmniMVS+</td>
+            <td>1.084</td><td>0.585</td><td>11.060</td><td>3.110</td><td>1.630</td>
+            <td>3.505</td><td>1.046</td><td>28.830</td><td>6.060</td><td>2.440</td>
+          </tr>
+          <tr>
+            <td class="method-name">RomniStereo</td>
+            <td>0.848</td><td>0.557</td><td>9.939</td><td>3.009</td><td>1.600</td>
+            <td>2.997</td><td>1.094</td><td>33.010</td><td>6.360</td><td>2.390</td>
+          </tr>
+          <tr>
+            <td class="method-name">MDP-Omni</td>
+            <td>0.873</td><td>0.529</td><td>9.968</td><td>2.585</td><td>1.381</td>
+            <td>3.291</td><td>1.121</td><td>29.660</td><td>6.810</td><td>2.990</td>
+          </tr>
+
+          <tr class="method-group">
+            <th colspan="11" scope="rowgroup">Sequential methods</th>
+          </tr>
+          <tr>
+            <td class="method-name">OmniMVS*</td>
+            <td>3.411</td><td>0.830</td><td>17.370</td><td>5.840</td><td>2.710</td>
+            <td>3.963</td><td class="second-best">0.878</td><td class="best">20.730</td>
+            <td class="second-best">4.399</td><td class="best">1.380</td>
+          </tr>
+          <tr>
+            <td class="method-name">OmniMVS+*</td>
+            <td>1.085</td><td>0.590</td><td>10.940</td><td>3.140</td><td>1.690</td>
+            <td>3.135</td><td>0.987</td><td>27.390</td><td>5.450</td><td>2.100</td>
+          </tr>
+          <tr>
+            <td class="method-name">RomniStereo*</td>
+            <td class="second-best">0.748</td><td class="second-best">0.444</td>
+            <td class="second-best">7.922</td><td class="second-best">2.318</td>
+            <td class="second-best">1.207</td>
+            <td>3.051</td><td>0.902</td><td>24.360</td><td>4.820</td><td>1.800</td>
+          </tr>
+          <tr>
+            <td class="method-name">MDP-Omni*</td>
+            <td>0.862</td><td>0.512</td><td>9.210</td><td>2.460</td><td>1.360</td>
+            <td>3.330</td><td>1.156</td><td>29.770</td><td>7.020</td><td>3.190</td>
+          </tr>
+          <tr class="ours-result">
+            <td class="method-name"><strong>TC-Omni (Ours)</strong></td>
+            <td class="best">0.644</td><td class="best">0.405</td>
+            <td class="best">7.302</td><td class="best">2.041</td><td class="best">1.050</td>
+            <td class="best">2.870</td><td class="best">0.844</td>
+            <td class="second-best">22.760</td><td class="best">4.375</td>
+            <td class="second-best">1.553</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note has-text-centered">
+      Lower is better for all metrics. <strong>Bold</strong> indicates the best result and
+      <span class="second-best">underline</span> indicates the second-best result.
+      * denotes a single-frame model extended with 3D CNN layers for sequential inputs.
+    </p>
   </div>
 </section>
 
