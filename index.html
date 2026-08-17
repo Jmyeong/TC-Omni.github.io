@@ -93,39 +93,12 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video id="teaser" autoplay muted loop playsinline controls>
-        <source src="./videos/tc_omni_sunny.mp4" type="video/mp4">
+        <source src="./videos/TC-Omni_sunny.mp4" type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
         <span class="tcomni">TC-Omni</span> produces accurate and temporally stable
         omnidirectional depth from sequential multi-fisheye images.
       </h2>
-    </div>
-  </div>
-</section>
-
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item">
-          <video autoplay controls muted loop playsinline>
-            <source src="./videos/tc_omni_sunny.mp4" type="video/mp4">
-          </video>
-          <p class="video-label">TC-Omni (Ours)</p>
-        </div>
-        <div class="item">
-          <video autoplay controls muted loop playsinline>
-            <source src="./videos/mdp_omni_sunny.mp4" type="video/mp4">
-          </video>
-          <p class="video-label">MDP-Omni</p>
-        </div>
-        <div class="item">
-          <video autoplay controls muted loop playsinline>
-            <source src="./videos/romnistereo_sunny.mp4" type="video/mp4">
-          </video>
-          <p class="video-label">RomniStereo</p>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -255,6 +228,37 @@
         </div>
         <img class="paper-figure" src="./images/figure7.jpg"
              alt="Qualitative comparison on the real-world OmniScape dataset">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small comparison-videos">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Video Comparisons</h2>
+      <p class="subtitle is-6 has-text-centered">
+        Depth predictions from the same Sunny sequence.
+      </p>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <video autoplay controls muted loop playsinline>
+            <source src="./videos/mdp_omni_sunny.mp4" type="video/mp4">
+          </video>
+          <p class="video-label">MDP-Omni</p>
+        </div>
+        <div class="item">
+          <video autoplay controls muted loop playsinline>
+            <source src="./videos/romnistereo_sunny.mp4" type="video/mp4">
+          </video>
+          <p class="video-label">RomniStereo</p>
+        </div>
+        <div class="item">
+          <video autoplay controls muted loop playsinline>
+            <source src="./videos/tc_omni_sunny.mp4" type="video/mp4">
+          </video>
+          <p class="video-label">TC-Omni (Ours)</p>
+        </div>
       </div>
     </div>
   </div>

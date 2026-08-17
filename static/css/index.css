@@ -93,6 +93,17 @@ body {
   text-align: center;
 }
 
+.comparison-videos .hero-body {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.comparison-videos .subtitle {
+  margin-top: -0.75rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
 .paper-figure-block {
   margin-top: 3rem;
 }
