@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="TC-Omni — temporally consistent omnidirectional depth estimation.">
-  <meta name="keywords" content="TC-Omni, omnidirectional depth, temporal consistency, BMVC 2026">
+  <meta name="description" content="TC-Omni predicts accurate and temporally consistent omnidirectional depth from sequential multi-fisheye inputs.">
+  <meta name="keywords" content="TC-Omni, omnidirectional stereo matching, temporal consistency, depth estimation, BMVC 2026">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TC-Omni | BMVC 2026</title>
+  <title>TC-Omni: Temporally Consistent Omnidirectional Stereo Matching</title>
+
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.svg">
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -17,25 +17,44 @@
 <body>
 
 <section class="hero publication-header">
-  <div class="hero-body compact-hero">
-    <div class="container is-max-desktop has-text-centered">
-      <p class="venue-line">BMVC 2026</p>
-      <h1 class="title publication-title">TC-Omni</h1>
-      <h2 class="subtitle publication-subtitle"><span class="todo">[TODO: Full paper subtitle]</span></h2>
-      <div class="is-size-5 publication-authors">
-        <span class="author-block"><a href="#">Author One</a><sup>1</sup>,</span>
-        <span class="author-block"><a href="#">Author Two</a><sup>1</sup>,</span>
-        <span class="author-block"><a href="#">Author Three</a><sup>2</sup>,</span>
-        <span class="author-block"><a href="#">Author Four</a><sup>1</sup></span>
-      </div>
-      <div class="is-size-6 publication-authors affiliation-line">
-        <span class="author-block"><sup>1</sup><span class="todo">[Institution One]</span></span>
-        <span class="author-block"><sup>2</sup><span class="todo">[Institution Two]</span></span>
-      </div>
-      <div class="publication-links">
-        <span class="link-block"><a href="#" class="button is-normal is-rounded is-dark"><span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span></a></span>
-        <span class="link-block"><a href="#" class="button is-normal is-rounded is-dark"><span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span></a></span>
-        <span class="link-block"><a href="#" class="button is-normal is-rounded is-dark"><span class="icon"><i class="fab fa-github"></i></span><span>Code</span></a></span>
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            <span class="tcomni">TC-Omni</span>: Temporally Consistent Omnidirectional Stereo Matching
+          </h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Jaemyeong Lee,</span>
+            <span class="author-block">Jimin Song,</span>
+            <span class="author-block">Sang Jun Lee</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Jeonbuk National University</span>
+          </div>
+          <div class="venue">BMVC 2026</div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="./TC-Omni_Temporally_Consistent_Omnidirectional_Stereo_Matching.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/Jmyeong/TC-Omni.github.io"
+                   class="external-link button is-normal is-rounded is-dark"
+                   target="_blank" rel="noopener noreferrer">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Website</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -44,94 +63,188 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <div class="video-frame teaser-frame">
-        <video autoplay muted loop playsinline controls preload="metadata"><source src="./static/videos/depth/tc_vs_mdp_wipe.mp4" type="video/mp4"></video>
-      </div>
-      <h2 class="subtitle has-text-centered teaser-caption">
-        TC-Omni produces temporally stable omnidirectional depth over an entire sequence.
-        The sliding boundary compares TC-Omni and MDP-Omni on the Sunny sequence.
+      <video id="teaser" autoplay controls muted loop playsinline preload="metadata">
+        <source src="./static/videos/depth/tc_vs_mdp_wipe.mp4" type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="tcomni">TC-Omni</span> estimates accurate and temporally stable
+        360° depth from sequential multi-fisheye inputs.
       </h2>
     </div>
   </div>
 </section>
 
-<section class="section first-section">
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="results-grid">
+        <article class="result-item result-ours">
+          <video autoplay controls muted loop playsinline preload="metadata">
+            <source src="./static/videos/depth/tc_omni_sunny.mp4" type="video/mp4">
+          </video>
+          <h3>TC-Omni <span>Ours</span></h3>
+        </article>
+        <article class="result-item">
+          <video autoplay controls muted loop playsinline preload="metadata">
+            <source src="./static/videos/depth/mdp_omni_sunny.mp4" type="video/mp4">
+          </video>
+          <h3>MDP-Omni</h3>
+        </article>
+        <article class="result-item">
+          <video autoplay controls muted loop playsinline preload="metadata">
+            <source src="./static/videos/depth/romnistereo_sunny.mp4" type="video/mp4">
+          </video>
+          <h3>RomniStereo</h3>
+        </article>
+      </div>
+      <p class="media-caption">
+        Synchronized depth predictions on the Sunny sequence. TC-Omni suppresses
+        frame-to-frame flicker while retaining scene structure.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered"><div class="column is-four-fifths">
-      <h2 class="title is-3 section-title">Abstract</h2>
-      <div class="content has-text-justified paper-copy"><p>
-        Omnidirectional depth estimation is essential for complete 3D perception, but frame-wise predictions often exhibit temporal flickering and inconsistent scene geometry. We present <strong>TC-Omni</strong>, <span class="todo">[TODO: concise description of the proposed method]</span>. Our approach leverages <span class="todo">[key spatial component]</span> and <span class="todo">[key temporal component]</span> to estimate stable depth sequences from multi-fisheye observations. Experiments on <span class="todo">[datasets]</span> show that TC-Omni improves both per-frame depth accuracy and temporal consistency over existing omnidirectional stereo and video-depth baselines.
-      </p></div>
-    </div></div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Temporally consistent depth estimation is essential for precise omnidirectional
+            3D reconstruction, yet existing omnidirectional stereo matching methods process
+            frames independently. We propose <strong>TC-Omni</strong>, the first OSM framework
+            designed to predict temporally consistent omnidirectional depth from sequential
+            inputs. A multi-view context enhancement module integrates complementary
+            observations from all viewpoints, while temporal context enhancement and temporal
+            correlation learning explicitly model spatio-temporal information. We further
+            introduce a confidence-based temporal gradient matching loss that emphasizes
+            reliable regions and suppresses ambiguous supervision. Experiments on synthetic
+            and real-world sequential datasets demonstrate state-of-the-art depth accuracy
+            and temporal consistency.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="section method-section">
-  <div class="container is-max-desktop has-text-centered">
-    <h2 class="title is-3 section-title">Method</h2>
-    <div class="content has-text-justified paper-copy method-summary"><p>
-      Given a synchronized sequence of omnidirectional observations, TC-Omni extracts spatial features, estimates omnidirectional correspondence, and propagates temporal evidence to refine depth consistently across time. The final panoramic depth sequence can be lifted into stable 3D geometry for downstream perception and reconstruction.
-    </p></div>
-    <div class="pipeline" aria-label="TC-Omni method overview">
-      <div class="pipeline-card"><span class="step-index">01</span><div class="fisheye-symbol"><i></i><i></i><i></i><i></i></div><h3>Multi-fisheye Sequence</h3><p>Synchronized omnidirectional observations</p></div>
-      <span class="pipeline-arrow">→</span>
-      <div class="pipeline-card accent-card"><span class="step-index">02</span><div class="feature-symbol"><i></i><i></i><i></i></div><h3>Spatial Matching</h3><p><span class="todo">[TODO: spatial module]</span></p></div>
-      <span class="pipeline-arrow">→</span>
-      <div class="pipeline-card accent-card"><span class="step-index">03</span><div class="temporal-symbol"><i></i><i></i><i></i></div><h3>Temporal Consistency</h3><p><span class="todo">[TODO: temporal module]</span></p></div>
-      <span class="pipeline-arrow">→</span>
-      <div class="pipeline-card"><span class="step-index">04</span><div class="depth-symbol"></div><h3>Depth Sequence</h3><p>Accurate and temporally stable prediction</p></div>
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Method</h2>
+    <div class="method-figure">
+      <img src="./static/images/tc_omni_pipeline.png"
+           alt="Overall TC-Omni pipeline with MVCE, TCEM, TCLM, and recurrent depth refinement">
     </div>
-    <p class="figure-caption"><strong>Method overview.</strong> Replace this draft graphic with the final paper figure.</p>
+    <p class="figure-caption">
+      Sequential multi-view fisheye features are projected into ERP space and refined by
+      spatial and temporal enhancement modules before recurrent depth estimation.
+    </p>
+
+    <div class="columns method-columns">
+      <div class="column">
+        <div class="content">
+          <h3 class="title is-4">Multi-view Context</h3>
+          <p>
+            <strong>MVCE</strong> combines complementary observations from all four fisheye
+            views to alleviate viewpoint ambiguity and occlusion in the stitched ERP features.
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="title is-4">Temporal Representation</h3>
+          <p>
+            <strong>TCEM</strong> enhances temporal context, while <strong>TCLM</strong>
+            learns temporally coherent correlation features for iterative 3D ConvGRU updates.
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content">
+          <h3 class="title is-4">Reliable Supervision</h3>
+          <p>
+            <strong>CTGM loss</strong> weights temporal gradient supervision using
+            photometric confidence, reducing harmful constraints in ambiguous regions.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="section results-section">
-  <div class="container is-max-desktop has-text-centered">
-    <h2 class="title is-3 section-title">Results</h2>
-    <p class="results-intro">Qualitative depth sequences on the Sunny benchmark. All videos are synchronized and loop automatically.</p>
-    <div class="comparison-block">
-      <h3 class="title is-4">Sliding Comparison</h3>
-      <div class="video-frame comparison-frame"><video autoplay muted loop playsinline controls preload="metadata"><source src="./static/videos/depth/tc_vs_mdp_wipe.mp4" type="video/mp4"></video></div>
-      <p class="figure-caption">TC-Omni vs. MDP-Omni. Move through time to inspect temporal stability.</p>
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results</h2>
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p>
+            TC-Omni achieves the best EPE and TEPE on both Sunny and the real-world
+            OmniScape dataset. Compared with sequential RomniStereo, it reduces EPE and
+            TEPE by <strong>13.90%</strong> and <strong>8.78%</strong> on Sunny, and by
+            <strong>5.93%</strong> and <strong>6.43%</strong> on OmniScape.
+          </p>
+        </div>
+      </div>
     </div>
-    <h3 class="title is-4 individual-title">Individual Depth Sequences</h3>
-    <div class="video-grid">
-      <article class="video-card ours-card"><div class="video-label"><span>TC-Omni</span><small>Ours</small></div><video autoplay muted loop playsinline controls preload="metadata"><source src="./static/videos/depth/tc_omni_sunny.mp4" type="video/mp4"></video></article>
-      <article class="video-card"><div class="video-label"><span>MDP-Omni</span><small>Baseline</small></div><video autoplay muted loop playsinline controls preload="metadata"><source src="./static/videos/depth/mdp_omni_sunny.mp4" type="video/mp4"></video></article>
-      <article class="video-card"><div class="video-label"><span>RomniStereo</span><small>Baseline</small></div><video autoplay muted loop playsinline controls preload="metadata"><source src="./static/videos/depth/romnistereo_sunny.mp4" type="video/mp4"></video></article>
+
+    <div class="table-container results-table">
+      <table class="table is-fullwidth is-hoverable">
+        <thead>
+          <tr>
+            <th rowspan="2">Method</th>
+            <th colspan="2">Sunny</th>
+            <th colspan="2">OmniScape</th>
+          </tr>
+          <tr>
+            <th>EPE ↓</th><th>TEPE ↓</th>
+            <th>EPE ↓</th><th>TEPE ↓</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>RomniStereo</td><td>0.848</td><td>0.557</td><td>2.997</td><td>1.094</td></tr>
+          <tr><td>MDP-Omni</td><td>0.873</td><td>0.529</td><td>3.291</td><td>1.121</td></tr>
+          <tr><td>RomniStereo*</td><td>0.748</td><td>0.444</td><td>3.051</td><td>0.902</td></tr>
+          <tr class="ours-row"><td><strong>TC-Omni (Ours)</strong></td><td><strong>0.644</strong></td><td><strong>0.405</strong></td><td><strong>2.870</strong></td><td><strong>0.844</strong></td></tr>
+        </tbody>
+      </table>
     </div>
-    <div class="table-container metric-table"><table class="table is-fullwidth is-hoverable"><thead><tr><th>Method</th><th>Depth Error ↓</th><th>δ1 ↑</th><th>Temporal Error ↓</th></tr></thead><tbody><tr><td>RomniStereo</td><td>—</td><td>—</td><td>—</td></tr><tr><td>MDP-Omni</td><td>—</td><td>—</td><td>—</td></tr><tr class="ours-row"><td><strong>TC-Omni (Ours)</strong></td><td><strong>—</strong></td><td><strong>—</strong></td><td><strong>—</strong></td></tr></tbody></table></div>
+    <p class="figure-caption">
+      Main comparison from the paper. * denotes a single-frame model extended with 3D CNN
+      layers for sequential inputs. Lower is better for all reported metrics.
+    </p>
   </div>
 </section>
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title is-3 section-title has-text-centered">Citation</h2>
-    <p>If you find this work useful, please consider citing our paper.</p>
-    <div class="bibtex-wrap"><button id="copy-bibtex" class="button is-small" type="button">Copy</button><pre><code id="bibtex">@inproceedings{tcomni2026,
-  title     = {TC-Omni: [TODO: Full Paper Title]},
-  author    = {Author One and Author Two and Author Three and Author Four},
+    <h2 class="title is-3">BibTeX</h2>
+    <pre><code>@inproceedings{lee2026tcomni,
+  author    = {Lee, Jaemyeong and Song, Jimin and Lee, Sang Jun},
+  title     = {TC-Omni: Temporally Consistent Omnidirectional Stereo Matching},
   booktitle = {British Machine Vision Conference (BMVC)},
   year      = {2026}
-}</code></pre></div>
+}</code></pre>
   </div>
 </section>
 
-<section class="section acknowledgement-section">
-  <div class="container is-max-desktop content">
-    <h2 class="title is-3 section-title has-text-centered">Acknowledgement</h2>
-    <p>We thank the authors of the omnidirectional stereo and video-depth projects that made this research possible. <span class="todo">[TODO: Add funding, collaborators, datasets, and code acknowledgements.]</span></p>
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        This website is licensed under a
+        <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+          Creative Commons Attribution-ShareAlike 4.0 International License
+        </a>.
+      </p>
+      <p class="template-credit">
+        Website template adapted from <a href="https://nerfies.github.io/">Nerfies</a>.
+      </p>
+    </div>
   </div>
-</section>
+</footer>
 
-<footer class="footer"><div class="container"><div class="content has-text-centered"><p><strong>TC-Omni</strong> · BMVC 2026 project page draft.</p><p class="template-credit">Website template adapted from <a href="https://nerfies.github.io/">Nerfies</a>.</p></div></div></footer>
-<script>
-  const copyButton = document.getElementById('copy-bibtex');
-  copyButton.addEventListener('click', async () => {
-    const text = document.getElementById('bibtex').textContent.trim();
-    try { await navigator.clipboard.writeText(text); copyButton.textContent = 'Copied'; setTimeout(() => { copyButton.textContent = 'Copy'; }, 1500); }
-    catch (_) { copyButton.textContent = 'Select text'; }
-  });
-</script>
 </body>
 </html>
