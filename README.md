@@ -16,8 +16,8 @@ Open <http://localhost:8000/>.
 
 The page follows the visual structure of the
 [Nerfies project page](https://nerfies.github.io/) and uses the paper PDF,
-the extracted pipeline figure, and the comparison videos under
-`static/videos/depth/`.
+the paper figures under `images/`, and the comparison videos under
+`videos/`.
 
 ## Citation
 
