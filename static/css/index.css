@@ -105,10 +105,22 @@ body {
   padding-bottom: 3rem;
 }
 
-.comparison-videos .subtitle {
-  margin-top: -0.75rem;
-  margin-bottom: 1.5rem;
+.comparison-group {
+  margin-top: 2rem;
+}
+
+.comparison-group .title {
+  margin-bottom: 0.4rem;
+}
+
+.comparison-caption {
+  margin-bottom: 1rem;
   color: #555;
+  font-size: 0.9rem;
+}
+
+.real-world-comparison {
+  margin-top: 3rem;
 }
 
 .paper-figure-block {
