@@ -132,6 +132,105 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Temporally consistent depth estimation is necessary for precise omnidirectional
+            3D reconstruction. Existing omnidirectional stereo matching methods achieve high
+            per-frame accuracy, but their frame-wise processing limits temporal consistency.
+            We propose <span class="tcomni">TC-Omni</span>, the first OSM framework that
+            predicts temporally consistent omnidirectional depth from sequential inputs.
+          </p>
+          <p>
+            TC-Omni enriches spatial and temporal representations through multi-view context
+            enhancement (MVCE), temporal context enhancement (TCEM), and temporal correlation
+            learning (TCLM). A confidence-based temporal gradient matching loss further
+            improves consistency by emphasizing reliable regions and suppressing ambiguous
+            temporal supervision. Experiments on synthetic and real-world sequences demonstrate
+            state-of-the-art depth accuracy and temporal consistency.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered paper-figure-block">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Why Temporal Consistency?</h2>
+        <div class="content has-text-justified">
+          <p>
+            Applying sequential inputs to existing frame-based OSM models does not guarantee
+            stable geometry. TC-Omni explicitly models temporal relationships and reduces both
+            depth error and frame-to-frame inconsistency.
+          </p>
+        </div>
+        <img class="paper-figure" src="./images/figure1.jpg"
+             alt="Performance comparison and temporally consistent TC-Omni reconstruction">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Method</h2>
+        <div class="content has-text-justified">
+          <p>
+            Sequential features from four fisheye cameras are projected into the
+            equirectangular domain through spherical sweeping. MVCE integrates complementary
+            views, while TCEM and TCLM enhance temporal context and correlation features.
+            A 3D ConvGRU iteratively estimates the final omnidirectional depth sequence.
+          </p>
+        </div>
+        <img class="paper-figure" src="./images/figure2.jpg"
+             alt="Overall architecture of TC-Omni">
+      </div>
+    </div>
+
+    <div class="columns is-centered paper-figure-block">
+      <div class="column is-full-width">
+        <h3 class="title is-4">Spatio-Temporal Representation Enhancement</h3>
+        <div class="content has-text-justified">
+          <p>
+            MVCE alleviates viewpoint ambiguity using all camera views. TCEM injects temporal
+            information into the context branch, and TCLM learns temporally coherent
+            correlations before recurrent depth refinement.
+          </p>
+        </div>
+        <img class="paper-figure" src="./images/figure3.jpg"
+             alt="MVCE, TCEM, and TCLM modules">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">OmniScape Dataset</h2>
+        <div class="content has-text-justified">
+          <p>
+            We collected <strong>OmniScape</strong>, a real-world sequential omnidirectional
+            stereo dataset, using our mobile data acquisition platform equipped with four
+            wide-FOV fisheye cameras and a 32-channel LiDAR sensor. OmniScape provides
+            synchronized multi-view fisheye sequences and LiDAR depth measurements for
+            evaluating depth accuracy and temporal consistency under practical sensor noise
+            and challenging outdoor conditions.
+          </p>
+        </div>
+        <img class="paper-figure narrow-figure" src="./images/figure4.jpg"
+             alt="Four-fisheye camera and LiDAR data collection platform">
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section quantitative-results">
   <div class="container is-max-widescreen">
     <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
@@ -230,105 +329,6 @@
       <span class="second-best">underline</span> indicates the second-best result.
       * denotes a single-frame model extended with 3D CNN layers for sequential inputs.
     </p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Temporally consistent depth estimation is necessary for precise omnidirectional
-            3D reconstruction. Existing omnidirectional stereo matching methods achieve high
-            per-frame accuracy, but their frame-wise processing limits temporal consistency.
-            We propose <span class="tcomni">TC-Omni</span>, the first OSM framework that
-            predicts temporally consistent omnidirectional depth from sequential inputs.
-          </p>
-          <p>
-            TC-Omni enriches spatial and temporal representations through multi-view context
-            enhancement (MVCE), temporal context enhancement (TCEM), and temporal correlation
-            learning (TCLM). A confidence-based temporal gradient matching loss further
-            improves consistency by emphasizing reliable regions and suppressing ambiguous
-            temporal supervision. Experiments on synthetic and real-world sequences demonstrate
-            state-of-the-art depth accuracy and temporal consistency.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="columns is-centered has-text-centered paper-figure-block">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Why Temporal Consistency?</h2>
-        <div class="content has-text-justified">
-          <p>
-            Applying sequential inputs to existing frame-based OSM models does not guarantee
-            stable geometry. TC-Omni explicitly models temporal relationships and reduces both
-            depth error and frame-to-frame inconsistency.
-          </p>
-        </div>
-        <img class="paper-figure" src="./images/figure1.jpg"
-             alt="Performance comparison and temporally consistent TC-Omni reconstruction">
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered">Method</h2>
-        <div class="content has-text-justified">
-          <p>
-            Sequential features from four fisheye cameras are projected into the
-            equirectangular domain through spherical sweeping. MVCE integrates complementary
-            views, while TCEM and TCLM enhance temporal context and correlation features.
-            A 3D ConvGRU iteratively estimates the final omnidirectional depth sequence.
-          </p>
-        </div>
-        <img class="paper-figure" src="./images/figure2.jpg"
-             alt="Overall architecture of TC-Omni">
-      </div>
-    </div>
-
-    <div class="columns is-centered paper-figure-block">
-      <div class="column is-full-width">
-        <h3 class="title is-4">Spatio-Temporal Representation Enhancement</h3>
-        <div class="content has-text-justified">
-          <p>
-            MVCE alleviates viewpoint ambiguity using all camera views. TCEM injects temporal
-            information into the context branch, and TCLM learns temporally coherent
-            correlations before recurrent depth refinement.
-          </p>
-        </div>
-        <img class="paper-figure" src="./images/figure3.jpg"
-             alt="MVCE, TCEM, and TCLM modules">
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered">OmniScape Dataset</h2>
-        <div class="content has-text-justified">
-          <p>
-            We collected <strong>OmniScape</strong>, a real-world sequential omnidirectional
-            stereo dataset, using our mobile data acquisition platform equipped with four
-            wide-FOV fisheye cameras and a 32-channel LiDAR sensor. OmniScape provides
-            synchronized multi-view fisheye sequences and LiDAR depth measurements for
-            evaluating depth accuracy and temporal consistency under practical sensor noise
-            and challenging outdoor conditions.
-          </p>
-        </div>
-        <img class="paper-figure narrow-figure" src="./images/figure4.jpg"
-             alt="Four-fisheye camera and LiDAR data collection platform">
-      </div>
-    </div>
   </div>
 </section>
 
