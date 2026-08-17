@@ -8,14 +8,4 @@ document.addEventListener('DOMContentLoaded', function () {
       menu.classList.toggle('is-active');
     });
   }
-
-  if (window.bulmaCarousel) {
-    bulmaCarousel.attach('#results-carousel', {
-      slidesToScroll: 1,
-      slidesToShow: 3,
-      loop: true,
-      infinite: true,
-      autoplay: false
-    });
-  }
 });

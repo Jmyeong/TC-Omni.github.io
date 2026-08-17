@@ -9,13 +9,11 @@
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.svg">
 
   <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
   <script defer src="./static/js/index.js"></script>
 </head>
 <body>
@@ -184,13 +182,15 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered">Real-World Omnidirectional Setup</h2>
+        <h2 class="title is-3 has-text-centered">OmniScape Dataset</h2>
         <div class="content has-text-justified">
           <p>
-            Our real-world platform combines four wide-FOV fisheye cameras with a 32-channel
-            LiDAR sensor. This setup provides synchronized panoramic sequences and depth
-            measurements for evaluating temporal consistency under practical noise and
-            challenging scene conditions.
+            We collected <strong>OmniScape</strong>, a real-world sequential omnidirectional
+            stereo dataset, using our mobile data acquisition platform equipped with four
+            wide-FOV fisheye cameras and a 32-channel LiDAR sensor. OmniScape provides
+            synchronized multi-view fisheye sequences and LiDAR depth measurements for
+            evaluating depth accuracy and temporal consistency under practical sensor noise
+            and challenging outdoor conditions.
           </p>
         </div>
         <img class="paper-figure narrow-figure" src="./images/figure4.jpg"
@@ -222,8 +222,9 @@
         <h3 class="title is-4">Real-World Results</h3>
         <div class="content has-text-justified">
           <p>
-            TC-Omni also maintains stable object boundaries on noisy real-world OmniScape
-            sequences, demonstrating robust temporal modeling beyond synthetic data.
+            On our collected OmniScape dataset, TC-Omni maintains stable object boundaries
+            despite real-world sensor noise, demonstrating robust temporal modeling beyond
+            synthetic data.
           </p>
         </div>
         <img class="paper-figure" src="./images/figure7.jpg"
@@ -240,25 +241,25 @@
       <p class="subtitle is-6 has-text-centered">
         Depth predictions from the same Sunny sequence.
       </p>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item">
+      <div class="comparison-grid">
+        <article class="comparison-item">
           <video autoplay controls muted loop playsinline>
             <source src="./videos/mdp_omni_sunny.mp4" type="video/mp4">
           </video>
           <p class="video-label">MDP-Omni</p>
-        </div>
-        <div class="item">
+        </article>
+        <article class="comparison-item">
           <video autoplay controls muted loop playsinline>
             <source src="./videos/romnistereo_sunny.mp4" type="video/mp4">
           </video>
           <p class="video-label">RomniStereo</p>
-        </div>
-        <div class="item">
+        </article>
+        <article class="comparison-item ours-video">
           <video autoplay controls muted loop playsinline>
             <source src="./videos/tc_omni_sunny.mp4" type="video/mp4">
           </video>
           <p class="video-label">TC-Omni (Ours)</p>
-        </div>
+        </article>
       </div>
     </div>
   </div>
